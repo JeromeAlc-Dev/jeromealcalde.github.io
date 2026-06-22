@@ -3,10 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jérôme Alcalde</title>
+    <title>Jérôme Alcalde — Développeur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #30363d;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #58a6ff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul a {
+            color: #e6edf3;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav ul a:hover {
+            color: #58a6ff;
+        }
+
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: radial-gradient(ellipse at top, #1a2332 0%, #0d1117 70%);
+        }
+
+        #hero .tag {
+            color: #58a6ff;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #e6edf3, #58a6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            color: #8b949e;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background: #58a6ff;
+            color: #0d1117;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #79b8ff;
+            transform: translateY(-2px);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #e6edf3;
+            border-left: 4px solid #58a6ff;
+            padding-left: 1rem;
+        }
+
+        /* A PROPOS */
+        #apropos p {
+            color: #8b949e;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        #apropos .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        #apropos .skill {
+            background: #161b22;
+            border: 1px solid #30363d;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #58a6ff;
+        }
+
+        /* PORTFOLIO */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-4px);
+        }
+
+        .project-card h3 {
+            color: #e6edf3;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+
+        /* CONTACT */
+        #contact {
+            text-align: center;
+        }
+
+        #contact p {
+            color: #8b949e;
+            margin-bottom: 2rem;
+        }
+
+        #contact .links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        #contact .links a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1px solid #30363d;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        #contact .links a:hover {
+            border-color: #58a6ff;
+            background: #161b22;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #8b949e;
+            font-size: 0.85rem;
+            border-top: 1px solid #30363d;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bonjour, je suis Jérôme Alcalde</h1>
-    <p>Site en construction... 🚧</p>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">JA</div>
+        <ul>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="tag">Développeur Web</div>
+        <h1>Jérôme Alcalde</h1>
+        <p>En reconversion vers le développement web & DevOps, passionné par la tech et les défis.</p>
+        <a href="#portfolio" class="btn">Voir mes projets</a>
+    </section>
+
+    <!-- A PROPOS -->
+    <section id="apropos">
+        <h2 class="section-title">À propos</h2>
+        <p>Issu du secteur BTP/Industrie, je me reconvertis vers le développement web et DevOps. Curieux et autodidacte, j'apprends chaque jour de nouvelles technologies.</p>
+        <p>Basé à Chambéry, je construis ce site comme premier projet concret de ma reconversion.</p>
+        <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Git</span>
+            <span class="skill">GitHub</span>
+            <span class="skill">Linux</span>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>🌐 Site Personnel</h3>
+                <p>Ce site, codé en HTML/CSS vanilla et hébergé sur GitHub Pages.</p>
+            </div>
+            <div class="project-card">
+                <h3>🖥️ Serveur de jeu</h3>
+                <p>Administration de serveurs privés ARK, ATLAS — configuration et gestion technique.</p>
+            </div>
+            <div class="project-card">
+                <h3>🚧 Projet à venir</h3>
+                <p>En cours d'apprentissage...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="section-title" style="text-align:left">Contact</h2>
+        <p>Tu veux échanger ou collaborer ? N'hésite pas à me contacter.</p>
+        <div class="links">
+            <a href="https://github.com/jeromealcalde">GitHub</a>
+            <a href="mailto:ton@email.com">Email</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Jérôme Alcalde — Fait avec ❤️ et du HTML</p>
+    </footer>
+
 </body>
 </html>
